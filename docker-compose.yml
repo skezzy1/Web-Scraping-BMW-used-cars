@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bmw-scraper:
+    build: .
+    container_name: bmw_scraper_service
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    shm_size: '2gb'
+    restart: unless-stopped
