@@ -1,4 +1,3 @@
-import scrapy
 from dataclasses import dataclass, field
 from typing import Optional
 
