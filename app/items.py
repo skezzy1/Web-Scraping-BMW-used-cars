@@ -1,4 +1,3 @@
-import scrapy
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -31,4 +30,3 @@ class BmwCarItem:
 #     transmission = scrapy.Field()
 #     upholstery = scrapy.Field()
 #
-
