@@ -30,4 +30,3 @@ class BmwCarItem:
 #     transmission = scrapy.Field()
 #     upholstery = scrapy.Field()
 #
-

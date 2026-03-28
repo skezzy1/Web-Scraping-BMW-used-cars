@@ -9,17 +9,16 @@ from scrapy.utils.project import get_project_settings
 
 sys.path.append(os.path.join(os.getcwd()))
 
-app = FastAPI(
-    title="BMW Scraper API",
-    version="1.0.0"
-)
+app = FastAPI(title="BMW Scraper API", version="1.0.0")
 
-DB_PATH = 'bmw_cars.db'
+DB_PATH = "bmw_cars.db"
+
 
 def run_spider():
     try:
         from app.spiders.bmw import BmwSpider
-        os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'app.settings')
+
+        os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "app.settings")
         settings = get_project_settings()
         process = CrawlerProcess(settings)
         process.crawl(BmwSpider)
@@ -27,11 +26,13 @@ def run_spider():
     except Exception as e:
         print(f"Error starting spider: {e}")
 
+
 @app.post("/run-scraping", tags=["Control"])
 async def trigger_scraping():
     p = multiprocessing.Process(target=run_spider)
     p.start()
     return {"message": "Scraping started", "status": "running"}
+
 
 @app.get("/cars", tags=["Data"])
 async def get_scraped_cars(
@@ -41,7 +42,7 @@ async def get_scraped_cars(
     min_price: Optional[float] = None,
     max_price: Optional[float] = None,
     limit: int = 100,
-    offset: int = 0
+    offset: int = 0,
 ):
     if not os.path.exists(DB_PATH):
         return {"error": "Database not found. Please run scraping first."}
@@ -77,6 +78,7 @@ async def get_scraped_cars(
     conn.close()
 
     return [dict(row) for row in rows]
+
 
 @app.get("/health", tags=["System"])
 async def health():
