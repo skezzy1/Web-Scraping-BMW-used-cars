@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright/python:v1.42.0-jammy
+FROM mcr.microsoft.com/playwright/python:v1.50.0-noble
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-RUN pip install poetry==1.8.2
+RUN pip install --no-cache-dir poetry>=2.0.1
 
 COPY pyproject.toml poetry.lock ./
 
