@@ -21,3 +21,14 @@ pip install -r requirements.txt && . venv/bin/activate
 ````bash
 python -m uvicorn app.main:app --reload
 ````
+## Docker Deployment (Recommended)
+Running the application via Docker is the recommended approach. It automatically handles all system-level dependencies required by Playwright (Chromium) and ensures an isolated, consistent environment.
+
+### Prerequisites
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Running the Application
+1. **Build and start the container:**
+   ```bash
+   docker-compose up --build
