@@ -1,0 +1,12 @@
+# Web Framework
+fastapi==0.135.2
+uvicorn[standard]==0.42.0
+
+# Scraping core
+Scrapy==2.14.2
+scrapy-playwright==0.0.46
+itemadapter==0.13.1
+
+# Infrastructure & Tools
+python-dotenv==1.2.2
+pydantic==2.12.5
