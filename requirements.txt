@@ -1,12 +1,19 @@
-# Web Framework
+# Web Framework & Server
 fastapi==0.135.2
 uvicorn[standard]==0.42.0
 
-# Scraping core
+# Scraping & Automation
 Scrapy==2.14.2
 scrapy-playwright==0.0.46
 itemadapter==0.13.1
 
-# Infrastructure & Tools
-python-dotenv==1.2.2
+# Validation & Environment
 pydantic==2.12.5
+python-dotenv==1.2.2
+
+# Testing & Dev
+pytest==9.0.2
+httpx==0.28.1
+pytest-cov==7.1.0
+genbadge==1.1.3
+coverage==7.13.5
